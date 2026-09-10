@@ -6,12 +6,6 @@ public class Controle {
     public String cor;
     public boolean wireless;
 
-    public Controle(String nome, Double preco, String cor, boolean wireless) {
-        this.nome = nome;
-        this.preco = preco;
-        this.cor = cor;
-        this.wireless = wireless;
-    }
 
     public void alternarConexao(boolean wireless) {
         this.wireless = wireless;
@@ -26,7 +20,7 @@ public class Controle {
         if (novoPreco <= 0){
             System.out.println("O preco náo pode ser zero nem negativo ");
         }else {
-            System.out.println("O novo preço atualizado é R$ " + novoPreco);
+            System.out.println("Preço atualizado: R$ " + novoPreco);
         }
     }
 

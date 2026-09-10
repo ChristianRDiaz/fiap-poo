@@ -10,6 +10,37 @@ public class Passageiro {
         this.cpf = cpf; // Novo Atributo
         this.saldo = 0.00;
     }
+    // Metodo para PEGAR o saldo (Leitura)
+    public double getSaldo() {
+        return this.saldo; // Apenas devolve o valor, não altera nada.
+    }
+
+    // Metodo para DEFINIR o saldo (Escrita com Regra de Negócio!)
+    private void setSaldo(double valor) {
+        if (valor >= 0) {
+            this.saldo = valor;
+        } else {
+            System.out.println("Erro de Segurança: Tentativa de definir saldo negativo bloqueada!");
+        }
+    }
+
+    // Faça o mesmo para o nome (sem regras complexas por enquanto)
+    public String getNome() {
+        return this.nome;
+    }
+
+    private void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    // Faça o mesmo para o cpf (sem regras complexas por enquanto)
+    public String getCpf() {
+        return this.cpf;
+    }
+
+    private void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     public void adicionarSaldo(double valor) {
         // Regra de negócio: O valor da recarga deve ser positivo
