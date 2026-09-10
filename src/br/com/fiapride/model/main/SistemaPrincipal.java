@@ -4,63 +4,28 @@ import br.com.fiapride.model.Controle;
 import br.com.fiapride.model.Passageiro;
 
 public class SistemaPrincipal {
-    static void main(String[] args) {
 
-        Passageiro passageiro1 = new Passageiro();
-        passageiro1.nome = "Christian";
-        passageiro1.saldo = 100.0;
+    public static void main(String[] args) {
+        // INSTANCIAÇÃO
+        // O comando 'new' aloca memória para um novo objeto.
+        // Criando o primeiro passageiro (Objeto 1)
+        Passageiro passageiro1 = new Passageiro("Ana Silva", "222");
+        System.out.println("Regarga passageiro 1");
+        passageiro1.adicionarSaldo(50.0);
 
-        Passageiro passageiro2 = new Passageiro();
-        passageiro2.nome = "Anderson";
-        passageiro2.saldo = 200.0;
+        // Criando o segundo passageiro (Objeto 2)
+        Passageiro passageiro2 = new Passageiro("Carlos Souza", "333");
+        System.out.println("Regarga passageiro 2");
+        passageiro2.adicionarSaldo(12.5);
 
-        Passageiro passageiro3 = new Passageiro();
-        passageiro3.nome = "Maria";
-        passageiro3.saldo = 300.0;
-        //-------------------Meu objeto--------------
+        System.out.println("--- Sistema FiapRide ---");
+        System.out.println("Passageiro: " + passageiro1.nome + " | Saldo: R$ " + passageiro1.saldo + " | CPF: " + passageiro1.cpf);
+        System.out.println("Passageiro: " + passageiro2.nome + " | Saldo: R$ " + passageiro2.saldo + " | CPF: " + passageiro2.cpf);
 
-        Controle controle1 = new Controle("Game Sir G7",299.00,"Violeta",true);
-        controle1.nome="Controle Xbox Series X";
-        controle1.preco= 540.00;
-        controle1.cor = "Shock Blue";
-        controle1.wireless = false;
-
-        Controle controle2 = new Controle("Machenike g5pro",219.00,"azul",false);
-        controle2.nome="Controle Sony DualSense ps5";
-        controle2.preco= 499.00;
-        controle2.cor = "Cosmic Red";
-        controle2.wireless = true;
-
-
-        //System.out.println("--- Sistema FiapRide ---");
-//        System.out.println("Nome: " + passageiro1.nome + " | " + " Saldo: " + passageiro1.saldo);
-//
-//        System.out.println("Nome: " + passageiro2.nome + " | " + " Saldo: " + passageiro2.saldo);
-//
-//        System.out.println("Nome: " + passageiro3.nome + " | " + " Saldo: " + passageiro3.saldo);
-
-//        System.out.println("\n--- Meu Objeto  1---");
-//        System.out.println("Nome: "+ controle1.nome);
-//        System.out.println("Preço: "+ controle1.preco);
-//        System.out.println("Cor: "+ controle1.cor);
-//        System.out.println("Wireles: "+ controle1.wireless);
-//
-//        System.out.println("\n--- Meu objeto 2 ---");
-//        System.out.println("Nome: "+ controle2.nome);
-//        System.out.println("Preço: "+ controle2.preco);
-//        System.out.println("Cor: "+ controle2.cor);
-//        System.out.println("Wireles: "+ controle2.wireless);
-
-        System.out.println("--- Meu objeto atual ---");
-        Controle controle4 = new Controle("Game Sir G7",299.00,"Violeta",true);
-        System.out.println("Nome do objeto: " + controle4.nome);
-        System.out.println("O preço atual: " + controle4.preco);
-        System.out.println("Cor: " + controle4.cor);
-        System.out.println("Conexão wireless? "+ controle4.wireless);
-        System.out.println("\n--- Meu objeto com atributos atualizados ---");
-        controle4.alternarConexao(false);
-        controle4.atualizarPreco(320.00);
-
+        System.out.println("Pagando viagem do passageiro 1");
+        passageiro1.pagarViagem(20);
+        System.out.println("Pagando viagem do passageiro 2");
+        passageiro2.pagarViagem(20);
 
     }
 }
