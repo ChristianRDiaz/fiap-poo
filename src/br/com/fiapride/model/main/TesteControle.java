@@ -7,7 +7,7 @@ public class TesteControle {
         System.out.println("--- Teste do Meu Objeto - CONTROLE ---");
 
         // 1. Instanciando o objeto (criando o espaço na memória)
-        Controle controle = new Controle();
+        Controle controle = new Controle("Gamesir Kailed", 350.0,false);
 
         // 2. Definindo os atributos diretamente
         controle.cor = "Azul";
