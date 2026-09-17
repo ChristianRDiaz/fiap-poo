@@ -1,9 +1,9 @@
 package br.com.fiapride.model;
 
 public class Passageiro {
-    public String nome;
-    public String cpf; // Novo Atributo
-    public double saldo;
+    private String nome;
+    private String cpf; // Novo Atributo
+    private double saldo;
 
     public Passageiro(String nome, String cpf) {
         this.nome = nome;

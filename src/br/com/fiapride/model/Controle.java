@@ -1,15 +1,22 @@
 package br.com.fiapride.model;
 
 public class Controle {
-    public String nome;
-    public Double preco;
-    public String cor;
-    public boolean wireless;
+    private String nome;
+    private Double preco;
+    private String cor;
+    private boolean wireless;
 
-    public Controle(String nome, Double preco, boolean wireless) {
+    // Atributo associacão
+    private Bateria bateriaDoControle;
+
+    // Construtor atualizado
+    public Controle(String nome, Double preco, boolean wireless, Bateria bateriaDoControle ) {
         this.nome = nome;
         this.preco = preco;
         this.wireless = wireless;
+        this.bateriaDoControle = bateriaDoControle;
+
+        System.out.println("🎮 Controle " + this.nome + " criado com sucesso!");
     }
 
     public String getNome() {
@@ -59,6 +66,12 @@ public class Controle {
         }else {
             System.out.println("Preço atualizado: R$ " + novoPreco);
         }
+    }
+
+    public void exibirStatusBateria() {
+        System.out.println("--- STATUS DA BATERIA DO CONTROLE " + this.nome + " ---");
+        System.out.println("Nível de Carga: " + this.bateriaDoControle.getNivelCarga() + "%");
+        System.out.println("Está carregando? " + (this.bateriaDoControle.isCarregando() ? "Sim" : "Não"));
     }
 
 }
