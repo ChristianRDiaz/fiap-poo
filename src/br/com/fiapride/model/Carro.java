@@ -7,14 +7,24 @@ public class Carro extends Veiculo {
     private int capacidadePassageiros;
 
     // CONSTRUTOR DA FILHA
-    public Carro(String placa, String modelo, int capacidadePassageiros) {
-        // 'super' significa SUPERCLASSE (Mãe).
-        // Estamos repassando a placa e o modelo para o construtor da mãe resolver!
+    public Carro(String placa, String modelo) {
         super(placa, modelo);
-
-        // E aqui o Carro resolve o que é dele:
-        this.setCapacidadePassageiros(capacidadePassageiros);
+        this.setCapacidadePassageiros(4);
     }
+
+    // @Override NÃO é opcional aqui!
+    // Se não implementarmos, o Java dá erro de compilação
+    @Override
+    public void exibirTipo() {
+        System.out.println("Sou um Carro");
+    }
+
+    @Override
+    public String calcularAutonomia() {
+        double kmRestante = this.getNivelCombustivel() * 10.0;
+        return "Autonomia: " + kmRestante + " km (Consumo de 10 km/l).";
+    }
+
 
     // Getters e Setters específicos do Carro
     public int getCapacidadePassageiros() {

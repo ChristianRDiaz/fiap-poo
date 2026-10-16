@@ -1,6 +1,6 @@
 package br.com.fiapride.model;
 
-public class Controle {
+public abstract class Controle {
     private String nome;
     private Double preco;
     private String cor;
@@ -10,13 +10,12 @@ public class Controle {
     private Bateria bateriaDoControle;
 
     // Construtor atualizado
-    public Controle(String nome, Double preco, boolean wireless, Bateria bateriaDoControle ) {
+    public Controle(String nome, Double preco, boolean wireless) {
         this.nome = nome;
         this.preco = preco;
         this.wireless = wireless;
-        this.bateriaDoControle = bateriaDoControle;
 
-        System.out.println("🎮 Controle " + this.nome + " criado com sucesso!");
+        System.out.println("🎮 Controle " + this.nome + " criado com sucesso!\n");
     }
 
     public String getNome() {
@@ -73,5 +72,5 @@ public class Controle {
         System.out.println("Nível de Carga: " + this.bateriaDoControle.getNivelCarga() + "%");
         System.out.println("Está carregando? " + (this.bateriaDoControle.isCarregando() ? "Sim" : "Não"));
     }
-
+    public abstract void mapearBotao();
 }

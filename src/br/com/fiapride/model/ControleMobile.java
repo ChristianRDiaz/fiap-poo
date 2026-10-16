@@ -3,11 +3,14 @@ package br.com.fiapride.model;
 public class ControleMobile extends Controle{
     private int larguraMaximaSmartphone; // Em milímetros, ex: 170
 
-    public ControleMobile(String nome, Double preco, boolean wireless, Bateria bateria, int larguraMaximaSmartphone) {
-        super(nome, preco, wireless, bateria);
+    public ControleMobile(String nome, Double preco, boolean wireless, int larguraMaximaSmartphone) {
+        super(nome, preco, wireless);
         this.larguraMaximaSmartphone = larguraMaximaSmartphone;
+    }
 
-        System.out.println("📱 Controle Mobile para smartphones criado com sucesso!");
+    @Override
+    public void mapearBotao(){
+        System.out.println("Mapeio de botoes no controle MOBILE");
     }
 
     public int getLarguraMaximaSmartphone() {

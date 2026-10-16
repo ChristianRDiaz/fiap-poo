@@ -2,32 +2,32 @@ package br.com.fiapride.model;
 
 public class TesteControle {
     public static void main(String[] args) {
-    System.out.println("--- TESTE DE HERANÇA - CONTROLES DE CONSOLE ---\n");
+        System.out.println("=== FIAPRIDE: Teste de Classes Abstratas e Polimorfismo ===");
+        System.out.println();
 
-    // 1. Criando as baterias independentes para cada controle
-    Bateria bateriaArcade = new Bateria(3000);
-    Bateria bateriaMobile = new Bateria(1500);
+        // Controles
+        Controle meuMobile = new ControleMobile("GameSir X2", 250.0, true, 170);
+        Controle meuArcade = new ControleArcade("Arcade Pro", 600.0, false, true);
 
-    // 2. Instanciando o objeto filho 1 (ControleArcade)
-    ControleArcade meuArcade = new ControleArcade("Fighter Stick Pro", 600.0, false, bateriaArcade, true);
+        // Chamar o metodo abstrato
+        System.out.println("--- Teste de Mapeamento Individual ---");
+        meuMobile.mapearBotao();
+        meuArcade.mapearBotao();
 
-    // 3. Instanciando o objeto filho 2 (ControleMobile)
-    ControleMobile meuMobile = new ControleMobile("GameSir X2", 350.0, true, bateriaMobile, 175);
+        System.out.println();
+        System.out.println("=== Teste de Polimorfismo com Array ===");
 
-        System.out.println("\n--- TESTANDO MÉTODOS HERDADOS ---");
-    // O ControleArcade herda o método de atualizar preço da superclasse Controle!
-        meuArcade.atualizarPreco(550.0);
+        Controle[] inventarioControles = new Controle[] {
+                new ControleMobile("Razer Kishi - Mobile", 400.0, true, 180),
+                new ControleArcade("FightStick - Arcade", 800.0, false, true),
+                new ControleMobile(" Backbone One - Mobile", 450.0, true, 175)
+        };
 
-    // O ControleMobile herda o método de exibir status da bateria (que usa a associação!)
-        meuMobile.exibirStatusBateria();
-
-        System.out.println("\n--- TESTANDO ATRIBUTOS EXCLUSIVOS DOS FILHOS ---");
-    // Testando o atributo exclusivo do Arcade
-        System.out.println("Arcade: "+meuArcade.getNome());
-        System.out.println("Possui alavanca turbo? "+(meuArcade.isPossuiAlavancaTurbo()?"Sim":"Não"));
-
-    // Testando o atributo exclusivo do Mobile
-        System.out.println("Mobile: "+meuMobile.getNome());
-        System.out.println("Largura máxima do smartphone: "+meuMobile.getLarguraMaximaSmartphone()+"mm");
+        // Percorremos o array chamando o mesmo metodo.
+        for (Controle controle : inventarioControles) {
+            System.out.println("Nome: " + controle.getNome());
+            controle.mapearBotao();
+            System.out.println("----------------------------------------");
+        }
     }
 }
